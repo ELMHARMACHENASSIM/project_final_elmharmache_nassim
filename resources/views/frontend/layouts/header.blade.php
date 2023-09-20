@@ -1,6 +1,5 @@
-
-    <!--::header part start::-->
- <header class="main_menu home_menu">
+<!--::header part start::-->
+<header class="main_menu home_menu">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-12">
@@ -15,32 +14,18 @@
                     <div class="collapse navbar-collapse main-menu-item" id="navbarSupportedContent">
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a class="nav-link" href={{route('home.index')}}>Home</a>
+                                <a class="nav-link" href={{ route('home.index') }}>Home</a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href={{route('shop.index')}}>shop</a>
+                                <a class="nav-link" href={{ route('shop.index') }}>shop</a>
                             </li>
-                            
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="blog.html" id="navbarDropdown_3"
-                                    role="button" data-toggle="dropdown" aria-haspopup="true"
-                                    aria-expanded="false">
-                                    pages
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown_2">
-                                    <a class="dropdown-item" href="login.html"> login</a>
-                                    <a class="dropdown-item" href="tracking.html">tracking</a>
-                                    <a class="dropdown-item" href="checkout.html">product checkout</a>
-                                    <a class="dropdown-item" href="cart.html">shopping cart</a>
-                                    <a class="dropdown-item" href="confirmation.html">confirmation</a>
-                                    <a class="dropdown-item" href="elements.html">elements</a>
-                                </div>
-                            </li>
-                         
+
+
+
 
                             <li class="nav-item">
-                                <a class="nav-link" href={{route('contact.index')}}>Contact</a>
+                                <a class="nav-link" href={{ route('contact.index') }}>Contact</a>
                             </li>
                         </ul>
                     </div>
@@ -59,7 +44,17 @@
                             </div> -->
 
                         </div>
-                        <a href={{route('loginuser.index')}}><i class="fa-solid fa-user"></i></a>
+                        @auth
+                            <form action={{ route('logout') }} method="POST">
+                                @csrf
+                                <button type="submit" class="btn bg-none">
+                                    <i class="fa-solid fa-arrow-right-from-bracket ml-4"></i>
+                                </button>
+                            </form>
+                        @else
+                            <a href={{ route('loginuser.index') }}><i class="fa-solid fa-user"></i></a>
+
+                        @endauth
                     </div>
                 </nav>
             </div>
@@ -75,4 +70,4 @@
         </div>
     </div>
 </header>
-    <!-- Header part end-->
+<!-- Header part end-->
