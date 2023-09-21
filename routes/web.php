@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\BoxofficeController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\DashAdminController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProfileController;
@@ -39,6 +41,13 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+// ! admin
+Route::middleware(['auth','role:admin'])->group(function () {
+    Route::get('/admindash', [DashAdminController::class, 'index'])->name('admin.index');
+    Route::get('/boxoffice', [BoxofficeController::class, 'index'])->name('boxoffice.index');
+
+
+});
 
 
 
