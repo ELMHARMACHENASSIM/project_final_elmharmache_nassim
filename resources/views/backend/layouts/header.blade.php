@@ -18,14 +18,16 @@
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href={{ route('shop.index') }}>products</a>
+                                <a class="nav-link" href={{ route('products.index') }}>products</a>
                             </li>
 
 
-
+                            <li class="nav-item">
+                                <a class="nav-link" href={{ route('edituser.index') }}>user</a>
+                            </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href={{ route('contact.index') }}>boxoffice</a>
+                                <a class="nav-link" href={{ route('boxoffice.index') }}>boxoffice</a>
                             </li>
                         </ul>
                     </div>

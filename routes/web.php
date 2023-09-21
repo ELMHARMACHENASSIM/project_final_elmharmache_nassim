@@ -3,8 +3,10 @@
 use App\Http\Controllers\BoxofficeController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DashAdminController;
+use App\Http\Controllers\EditUserController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegController;
 use App\Http\Controllers\ShopController;
@@ -45,7 +47,8 @@ Route::middleware('auth')->group(function () {
 Route::middleware(['auth','role:admin'])->group(function () {
     Route::get('/admindash', [DashAdminController::class, 'index'])->name('admin.index');
     Route::get('/boxoffice', [BoxofficeController::class, 'index'])->name('boxoffice.index');
-
+    Route::get('/products', [ProductController::class, 'index'])->name('products.index');
+    Route::get('/edituser', [EditUserController::class, 'index'])->name('edituser.index');
 
 });
 

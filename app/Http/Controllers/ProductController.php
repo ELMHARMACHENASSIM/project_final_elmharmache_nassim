@@ -9,7 +9,7 @@ class ProductController extends Controller
 {
     public function index()
     {
-        return view('backend.admin.product');
+        return view('backend.product');
     }
     public function store(Request $request)
     {
