@@ -53,6 +53,7 @@ Route::middleware(['auth','role:admin'])->group(function () {
     //? crud
     Route::post('/products', [ProductController::class, 'store'])->name('products.store');
     Route::delete('/products/delete/{product}', [ProductController::class, 'deleteitem'])->name('products.deleteitem');
+    Route::put('/products/update/{product}', [ProductController::class, 'update'])->name('products.update');
 
 
 });
