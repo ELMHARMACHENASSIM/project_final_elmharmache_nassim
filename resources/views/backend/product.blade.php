@@ -6,7 +6,7 @@
                 <h2>products</h2>
                 <!-- Button trigger modal -->
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                    Launch static backdrop modal
+                    add product
                 </button>
 
                 <!-- Modal -->
@@ -20,11 +20,32 @@
                                     aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                ...
+                                <form action={{route('products.store')}} method="POST" enctype="multipart/form-data">
+                                    @csrf
+                                    <div class="mb-3">
+                                        <input type="file"  name="image" class="form-control" id="exampleInputfile"  required>
+                                      </div>
+                                    <div class="mb-3">
+                                      <input type="text" name="name" class="form-control" id="exampleInputName" placeholder="name" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <input type="text" name="description" class="form-control" id="exampleInputDescr" placeholder="description" required>
+                                      </div>
+                                      <div class="mb-3">
+                                        <input type="number" name="stock" class="form-control" id="exampleInputStock" placeholder="stock" required>
+                                      </div>
+                                      <div class="mb-3">
+                                        <input type="number" name="prix" class="form-control" id="exampleInputPrix" placeholder="prix" required>
+                                      </div>
+                                    <div class="mb-3">
+                                      <input type="text" name="type" class="form-control" id="exampleInputType" placeholder="type" required>
+                                    </div>
+                                
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                  </form>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Understood</button>
                             </div>
                         </div>
                     </div>
@@ -39,6 +60,8 @@
                     <th scope="col">description</th>
                     <th scope="col">stock</th>
                     <th scope="col">prix</th>
+                    <th scope="col">type</th>
+
                     <th scope="col">update</th>
                     <th scope="col">delete</th>
 
@@ -46,21 +69,27 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    <td>@mdo</td>
-                    <td>@mdo</td>
-                    <td>@mdo</td>
-                    <td><form action="">
+                    @foreach ($products as $product)
+                        <tr>
+                    <th scope="row">{{$product->id}}</th>
+                    <td><img src={{ asset('storage/img/adminproduct/' . $product->image) }} alt="" width="40" height="40" srcset=""></td>
+                    <td>{{$product->name}}</td>
+                    <td>{{$product->description}}</td>
+                    <td>{{$product->stock}}</td>
+                    <td>{{$product->prix}}</td>
+                    <td>{{$product->type}}</td>
+                    <td></td>
+                    <td><form action={{route('products.deleteitem',$product->id)}} method="POST">
+                        @csrf
+                        @method('DELETE')
                         <button type="submit" class="border border-0">
                             <i class="fa-solid fa-trash"></i>
                             </button>
                         </form>
                     </td>
-                  </tr>
+                  </tr> 
+                    @endforeach
+                 
                 </tbody>
               </table>
         </div>

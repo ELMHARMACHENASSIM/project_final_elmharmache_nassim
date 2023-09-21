@@ -131,7 +131,7 @@ class ProductSeeder extends Seeder
                 'image' => 'plastic6.jpg',
                 'name' => 'chair plastic n6',
                 'description' => 'chair plastic new bla blapatati pa tata  chaire for   ',
-                'stock' => 1,
+                'stock' => 0,
                 'prix' => 120,
                 'type' => 'plastic',
 

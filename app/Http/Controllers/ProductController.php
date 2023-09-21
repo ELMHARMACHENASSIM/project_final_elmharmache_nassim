@@ -9,28 +9,40 @@ class ProductController extends Controller
 {
     public function index()
     {
-        return view('backend.product');
+        $products = Product::all();
+
+        return view('backend.product', compact('products'));
     }
     public function store(Request $request)
     {
         request()->validate([
-            'images' => 'required|image|mimes:png,jpg,svg,jpeg,jfif|min:0',
+            'image' => 'required|image|mimes:png,jpg,svg,jpeg,jfif|min:0',
             'name' => 'required',
+            'description' => 'required',
+            'stock' => 'required',
+            'prix' => 'required',
+            'type' => 'required',
         ]);
 
         $srcimage = $request->file("image");
         $imageName = 'product_' . uniqid() . '.' . $srcimage->getClientOriginalExtension();
-        $$srcimage->storeAs('img/product/', $imageName, 'public');
+        $srcimage->storeAs('img/adminproduct/', $imageName, 'public');
         $dataProduct = [
             'image' => $imageName,
             'name' => $request->name,
-            'disponible' => true,
-            'nombre_utilisation' => 0,
+            'description' => $request->description,
+            'stock' => $request->stock,
+            'prix' => $request->prix,
+            'type' => $request->type,
 
         ];
         Product::create($dataProduct);
 
-
+        return redirect()->back();
+    }
+    public function deleteitem(Product $product)
+    {
+        $product->delete();
         return redirect()->back();
     }
 }

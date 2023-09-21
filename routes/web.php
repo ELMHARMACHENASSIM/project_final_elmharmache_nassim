@@ -50,6 +50,11 @@ Route::middleware(['auth','role:admin'])->group(function () {
     Route::get('/products', [ProductController::class, 'index'])->name('products.index');
     Route::get('/edituser', [EditUserController::class, 'index'])->name('edituser.index');
 
+    //? crud
+    Route::post('/products', [ProductController::class, 'store'])->name('products.store');
+    Route::delete('/products/delete/{product}', [ProductController::class, 'deleteitem'])->name('products.deleteitem');
+
+
 });
 
 

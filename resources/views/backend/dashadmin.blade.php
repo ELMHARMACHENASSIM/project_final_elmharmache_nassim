@@ -1,5 +1,5 @@
 @extends('backend.adindex')
 @section('admincontent')
-<h1>dashadmin</h1>
+<h1 class="text-danger">dashadmin</h1>
 
 @endsection
