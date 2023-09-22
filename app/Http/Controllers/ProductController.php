@@ -70,7 +70,11 @@ class ProductController extends Controller
         return redirect()->back();
     }
 
-    public function deleteitem(Product $product){
+    public function deleteitem(Product $product)
+    {
+        if (strlen($product->image) >= 18) {
+            Storage::disk("public")->delete('img/adminproduct/' . $product->image);
+        }
         $product->delete();
         return redirect()->back();
     }
