@@ -37,21 +37,22 @@
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-cart-plus"></i>
                             </a>
-                            <!-- <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <div class="single_product">
-
-                                </div>
-                            </div> -->
+                           
 
                         </div>
                         @auth
+                        <div class="d-flex justify-content-center align-items-center gap-4 border border-dark" ">
+                             <h6 class=" ml-1 mb-0">{{auth()->user()->name}}</h6>
                             <form action={{ route('logout') }} method="POST">
                                 @csrf
-                                <button type="submit" class="btn bg-none">
-                                    <i class="fa-solid fa-arrow-right-from-bracket ml-4"></i>
+                                <button type="submit" class="btn bg-none d-flex justify-content-center align-items-center ">
+                                    <i class="fa-solid fa-arrow-right-from-bracket "></i>
                                 </button>
-                            </form>
+                            </form >
+                        </div>
+                      
                         @else
+                        
                             <a href={{ route('loginuser.index') }}><i class="fa-solid fa-user"></i></a>
 
                         @endauth
