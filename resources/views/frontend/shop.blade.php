@@ -19,17 +19,17 @@
     <!-- breadcrumb start-->
     <div class="container pt-5">
         <div class="row">
-            <div class="col-3">
-                <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                    <a class="nav-link active" id="v-pills-all-tab" data-toggle="pill" href="#v-pills-all" role="tab" aria-controls="v-pills-all" aria-selected="true">all</a>
-                    <a class="nav-link" id="v-pills-gaming-tab" data-toggle="pill" href="#v-pills-gaming" role="tab"aria-controls="v-pills-gaming" aria-selected="false">gaming</a>
-                    <a class="nav-link" id="v-pills-cloth-tab" data-toggle="pill" href="#v-pills-cloth" role="tab" aria-controls="v-pills-cloth" aria-selected="false">cloth</a>
-                    <a class="nav-link" id="v-pills-plastic-tab" data-toggle="pill" href="#v-pills-plastic" role="tab" aria-controls="v-pills-plastic" aria-selected="false">plastic</a>
-                    <a class="nav-link" id="v-pills-wood-tab" data-toggle="pill" href="#v-pills-wood" role="tab"aria-controls="v-pills-wood" aria-selected="false">wood</a>
+            <div class="col-2">
+                <div class="nav flex-column nav-pills matlbotonat" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                    <a class=" btona active" id="v-pills-all-tab" data-toggle="pill" href="#v-pills-all" role="tab" aria-controls="v-pills-all" aria-selected="true">all</a>
+                    <a class=" btona" id="v-pills-gaming-tab" data-toggle="pill" href="#v-pills-gaming" role="tab"aria-controls="v-pills-gaming" aria-selected="false">gaming</a>
+                    <a class=" btona" id="v-pills-cloth-tab" data-toggle="pill" href="#v-pills-cloth" role="tab" aria-controls="v-pills-cloth" aria-selected="false">cloth</a>
+                    <a class=" btona" id="v-pills-plastic-tab" data-toggle="pill" href="#v-pills-plastic" role="tab" aria-controls="v-pills-plastic" aria-selected="false">plastic</a>
+                    <a class=" btona" id="v-pills-wood-tab" data-toggle="pill" href="#v-pills-wood" role="tab"aria-controls="v-pills-wood" aria-selected="false">wood</a>
 
                 </div>
             </div>
-            <div class="col-9">
+            <div class="col-10">
                 <div class="tab-content" id="v-pills-tabContent">
                     <div class="tab-pane fade show active" id="v-pills-all" role="tabpanel" aria-labelledby="v-pills-all-tab">
                         {{-- all --}}
@@ -37,7 +37,7 @@
                             @foreach ($productsall as $product)
                                 <div class="col-lg-4 col-sm-6">
                                     <div class="single_product_item">
-                                        <img src={{ asset('storage/img/adminproduct/' . $product->image) }} alt="">
+                                        <a href={{route('showitem.index',$product->id)}}>    <img src={{ asset('storage/img/adminproduct/' . $product->image) }} alt=""> </a>
                                         <div class="single_product_text">
                                             <h4>{{ $product->name }}</h4>
                                             <h3>$150.00</h3>
@@ -61,8 +61,8 @@
                                 @if ($product->type == 'gaming')
                                     <div class="col-lg-4 col-sm-6">
                                         <div class="single_product_item">
-                                            <img src={{ asset('storage/img/adminproduct/' . $product->image) }}
-                                                alt="">
+                                            <a href={{route('showitem.index',$product->id)}}>     <img src={{ asset('storage/img/adminproduct/' . $product->image) }}
+                                                alt=""> </a>
                                             <div class="single_product_text">
                                                 <h4>{{ $product->name }}</h4>
                                                 <h3>$150.00</h3>
@@ -81,8 +81,8 @@
                                 @if ($product->type == 'cloth')
                                     <div class="col-lg-4 col-sm-6">
                                         <div class="single_product_item">
-                                            <img src={{ asset('storage/img/adminproduct/' . $product->image) }}
-                                                alt="">
+                                            <a href={{route('showitem.index',$product->id)}}>   <img src={{ asset('storage/img/adminproduct/' . $product->image) }}
+                                                alt=""> </a>
                                             <div class="single_product_text">
                                                 <h4>{{ $product->name }}</h4>
                                                 <h3>$150.00</h3>
@@ -103,8 +103,8 @@
                                 @if ($product->type == 'plastic')
                                     <div class="col-lg-4 col-sm-6">
                                         <div class="single_product_item">
-                                            <img src={{ asset('storage/img/adminproduct/' . $product->image) }}
-                                                alt="">
+                                            <a href={{route('showitem.index',$product->id)}}>  <img src={{ asset('storage/img/adminproduct/' . $product->image) }}
+                                                alt=""> </a>
                                             <div class="single_product_text">
                                                 <h4>{{ $product->name }}</h4>
                                                 <h3>$150.00</h3>
@@ -124,8 +124,8 @@
                                 @if ($product->type == 'wood')
                                     <div class="col-lg-4 col-sm-6">
                                         <div class="single_product_item">
-                                            <img src={{ asset('storage/img/adminproduct/' . $product->image) }}
-                                                alt="">
+                                            <a href={{route('showitem.index',$product->id)}}>   <img src={{ asset('storage/img/adminproduct/' . $product->image) }}
+                                                alt=""></a>
                                             <div class="single_product_text">
                                                 <h4>{{ $product->name }}</h4>
                                                 <h3>$150.00</h3>

@@ -7761,5 +7761,16 @@ h6 {
     justify-content: flex-start !important;
   }
 }
-
+.matlbotonat{
+  width: 70px;
+}
+.btona{
+  width: 50px;
+  background: none;
+  color: rgba(0, 0, 0, 0.5);
+  }
+.btona.active{
+background: none;
+color: #000;
+}
 /*# sourceMappingURL=style.css.map */

@@ -10,6 +10,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegController;
 use App\Http\Controllers\ShopController;
+use App\Http\Controllers\ShowItemController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,6 +30,8 @@ Route::get('/shop', [ShopController::class, 'index'])->name('shop.index');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
 Route::get('/loginuser', [LoginController::class, 'index'])->name('loginuser.index');
 Route::get('/reguser', [RegController::class, 'index'])->name('reguser.index');
+Route::get('/showitem/{product}', [ShowItemController::class, 'showitem'])->name('showitem.index');
+Route::post('/sendmsg', [ContactController::class, 'store'])->name('contact.store');
 
 
 
@@ -54,6 +57,7 @@ Route::middleware(['auth','role:admin'])->group(function () {
     Route::post('/products', [ProductController::class, 'store'])->name('products.store');
     Route::delete('/products/delete/{product}', [ProductController::class, 'deleteitem'])->name('products.deleteitem');
     Route::put('/products/update/{product}', [ProductController::class, 'update'])->name('products.update');
+    Route::put('/editrole/{user}', [EditUserController::class, 'editRole'])->name('user.editRole');
 
 
 });

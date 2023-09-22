@@ -15,7 +15,7 @@
                                                 <h1>{{ $product->name }}</h1>
                                                 <p>{{ $product->description }}</p>
                                                 <p>type :{{ $product->type }}</p>
-                                                <a href="#" class="btn_2">buy now</a>
+                                                <a href={{route('showitem.index',$product->id)}} class="btn_2">buy now</a>
                                             </div>
                                         </div>
                                     </div>
@@ -51,7 +51,7 @@
                         <div class="single_feature_post_text">
                             <p>{{ $product->name }}</p>
                             <h3>{{ $product->type }}</h3>
-                            <a href="#" class="feature_btn">EXPLORE NOW <i class="fas fa-play"></i></a>
+                            <a href={{route('showitem.index',$product->id)}} class="feature_btn">EXPLORE NOW <i class="fas fa-play"></i></a>
                             <img src={{ asset('storage/img/adminproduct/' . $product->image) }}
                                 class="w-100 h-100 object-fit-cover" alt="">
                         </div>
@@ -79,7 +79,7 @@
                             @foreach ($lastEightItems as $product)
                                 <div class="col-lg-3 col-sm-6">
                                     <div class="single_product_item">
-                                        <img src={{ asset('storage/img/adminproduct/' . $product->image) }} alt="">
+                                        <a href={{route('showitem.index',$product->id)}}>  <img src={{ asset('storage/img/adminproduct/' . $product->image) }} alt=""> </a>
                                         <div class="single_product_text">
                                             <h4>{{ $product->name }}</h4>
                                             <h3>${{ $product->prix }}</h3>
@@ -106,7 +106,7 @@
                 <div class="col-lg-6 col-md-6">
                     @foreach ($lastOne as $product)
                         <div class="offer_img">
-                            <img src={{ asset('storage/img/adminproduct/' . $product->image) }} alt="">
+                         <a href={{route('showitem.index',$product->id)}}>   <img src={{ asset('storage/img/adminproduct/' . $product->image) }} alt=""></a>
                         </div>
                     @endforeach
 
@@ -153,7 +153,7 @@
                         @foreach ($products as $product)
                             @if ($product->stock < 5)
                                 <div class="single_product_item">
-                                    <img src={{ asset('storage/img/adminproduct/' . $product->image) }} class="w-100 h-100 object-fit-cover" alt="">
+                                    <a href={{route('showitem.index',$product->id)}}>       <img src={{ asset('storage/img/adminproduct/' . $product->image) }} class="w-100 h-100 object-fit-cover" alt=""> </a>
                                     <div class="single_product_text">
                                         <h4>{{$product->name}}</h4>
                                         <h3>stock : {{$product->stock}}</h3>
