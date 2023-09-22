@@ -36,6 +36,7 @@
             <h5>previous <span>|</span> next</h5>
             <h3>{{$product->name}}</h3>
             <h2>{{$product->prix}}</h2>
+
             <ul class="list">
               <li>
                 <a class="active" href="#">
